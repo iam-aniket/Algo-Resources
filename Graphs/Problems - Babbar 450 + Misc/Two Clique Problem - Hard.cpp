@@ -1,5 +1,3 @@
-#define Z 100
-
 bool isBipartite(int node, int color[], int n, int adj[][100])
 {
 	color[node] = 1;
@@ -81,3 +79,13 @@ int main()
 	}
 	return 0;
 }
+/*
+1
+5 5
+
+0 1
+0 2
+0 3
+1 2
+3 4
+*/
