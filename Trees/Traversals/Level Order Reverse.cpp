@@ -4,8 +4,8 @@ public:
 	vector<vector<int>> levelOrderBottom(TreeNode* root)
 	{
 		vector<vector<int>> ans;
-		levelOrderBottomDFS(root, ans, 0);
-        reverse(ans.begin(),ans.end());
+		levelOrderBottomBFS(root, ans, 0);
+		//reverse(ans.begin(),ans.end());	//only for DFS
 		return ans;
 	}
 	void levelOrderBottomBFS(TreeNode* root, vector<vector<int>>& ans)
@@ -42,5 +42,35 @@ public:
 
 		levelOrderBottomDFS(root->left, ans, depth + 1);
 		levelOrderBottomDFS(root->right, ans, depth + 1);
+	}
+	//This uses stack - Kashish - but not 2d vector return only 1d vect return
+	void levelOrderReverse(TreeNode* root, std::vector<int>& ans)
+	{
+		if (root == NULL)return;
+
+		queue<TreeNode*> q;
+		stack<int> s;
+
+		q.push(root);
+
+		while (!q.empty())
+		{
+			TreeNode* temp = q.front();
+			s.push(temp->val);
+			q.pop();
+
+			if (temp->left != NULL)
+				q.push(temp->left);
+
+			if (temp->right != NULL)
+				q.push(temp->right);
+		}
+
+		while (!s.empty())
+		{
+			int temp = s.top();
+			s.pop();
+			ans.push_back(temp);
+		}
 	}
 };
