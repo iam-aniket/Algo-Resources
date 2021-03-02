@@ -27,4 +27,15 @@ public:
 		rightViewDFS(root->right, ans, depth + 1);
 		rightViewDFS(root->left, ans, depth + 1);
 	}
+	void leftViewDFS(TreeNode* root, vector<int>& ans, int depth)
+	{
+		if (root == NULL)return;
+
+		if (ans.size() == depth)
+			ans.push_back(root->val);
+
+		leftViewDFS(root->left, ans, depth + 1);
+		leftViewDFS(root->right, ans, depth + 1);
+	}
+
 };
