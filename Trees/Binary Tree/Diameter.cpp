@@ -11,7 +11,6 @@ int diameterOfBinaryTree(TreeNode* root)
 	rec(root, d);
 	return d;
 }
-
 int dfs(TreeNode* root, int &d)
 {
 	if (root == NULL) return 0;
