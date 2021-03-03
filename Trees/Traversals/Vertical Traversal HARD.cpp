@@ -1,6 +1,8 @@
 //Watch Tech Dose to refer
+//https://www.youtube.com/watch?v=kqHNP6NTzME
 
 //https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/discuss/260502/C%2B%2B-BFSDFS
+
 class Solution 
 {
 public:
