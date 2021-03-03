@@ -7,6 +7,7 @@ class Solution
 {
 public:
 	//Create Vertical View then just first element from each line is top view
+	//And last element is bottom view
 	vector<int> verticalTraversal(TreeNode* root)
 	{
 		map<int, map<int, multiset<int>>> nodes;
@@ -48,5 +49,15 @@ public:
 			top.push_back(x[0]);
 
 		return top;
+//////////////////////////////////Bottom View/////////////////////////////
+		/*
+		vector<int> bottom;
+
+		//Last element from every vertical line is bottom view
+		for (auto x : ans)
+			bottom.push_back(x[x.size() - 1]);
+
+		return bottom;
+		*/
 	}
 };
