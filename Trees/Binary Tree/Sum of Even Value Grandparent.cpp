@@ -1,6 +1,7 @@
 //Just recurse for current, parent, and Grandparent
 //No need to store 
-//Hence Efficient TC & O(1) SC
+//Hence Efficient 
+//O(n) TC & O(H) SC {for recursive stack (H - Height of tree)}
 class Solution {
 public:
 	int ans = 0;
