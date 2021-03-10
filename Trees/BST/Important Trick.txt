@@ -37,9 +37,10 @@ Question : Kth Smallest Element in a BST
      }
      return root.val;
  }
+ 
 We can also use this structure to solve BST validation question.
 
-Question : Validate Binary Search Tree
+Question Q : Validate Binary Search Tree
 
 public boolean isValidBST(TreeNode root) {
    if (root == null) return true;
