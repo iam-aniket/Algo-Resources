@@ -2,6 +2,7 @@ class Solution
 {
 public:
 	vector<int> ans1, ans2;
+	
 	vector<int> mergeTrees(TreeNode* root1, TreeNode* root2)
 	{
 		vector<int> ans;
