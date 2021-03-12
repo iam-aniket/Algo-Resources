@@ -1,9 +1,10 @@
-class Solution 
+//https://leetcode.com/problems/all-elements-in-two-binary-search-trees
+class Solution
 {
 public:
 	vector<int> ans1, ans2;
-	
-	vector<int> mergeTrees(TreeNode* root1, TreeNode* root2)
+
+	vector<int> getAllElements(TreeNode* root1, TreeNode* root2)
 	{
 		vector<int> ans;
 
@@ -12,9 +13,9 @@ public:
 
 		int i = 0, j = 0, n1 = ans1.size(), n2 = ans2.size();
 
-		while (i < n1 - 1 && j < n2 - 1)
+		while (i < n1 && j < n2)
 		{
-			if (ans1[i] < ans1[j])
+			if (ans1[i] < ans2[j])
 			{
 				ans.push_back(ans1[i]);
 				i++;
@@ -25,19 +26,18 @@ public:
 				j++;
 			}
 		}
+		//Left out elements if any
 		while (i < n1)
 		{
 			ans.push_back(ans1[i]);
 			i++;
 		}
+		//Left out elements if any
 		while (j < n2)
 		{
 			ans.push_back(ans2[j]);
 			j++;
 		}
-
-		for (auto x : ans)
-			cout << x << " ";
 
 		return ans;
 	}
@@ -46,8 +46,8 @@ public:
 		if (root == NULL)
 			return;
 
-		inorder(root->left, ansx);
-		ansx.push_back(root->val);
-		inorder(root->right, ansx);
+		inorder(root->left, ans);
+		ans.push_back(root->val);
+		inorder(root->right, ans);
 	}
 };
