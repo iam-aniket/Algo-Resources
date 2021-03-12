@@ -1,4 +1,7 @@
 //https://leetcode.com/problems/all-elements-in-two-binary-search-trees
+
+//Knowledge Center YT
+//https://www.youtube.com/watch?v=B97Hk1H2x2s
 class Solution {
 public:
 	vector<int> getAllElements(TreeNode* root1, TreeNode* root2)
