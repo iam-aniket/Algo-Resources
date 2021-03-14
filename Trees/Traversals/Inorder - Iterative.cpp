@@ -1,40 +1,60 @@
 //IN-ORDER Rachit Jain Trick - stack + unordered map counting
 //Refer https://www.youtube.com/watch?v=5BzvEmscu-o
 //https://github.com/rachitiitr/DataStructures-Algorithms/blob/master/Tricks/iterative-tree-traversal-1.cpp
-class Solution {
-public:
 
-	vector<int> inorderTraversal(TreeNode* root)
+//This can be applied to pre and post order too.
+//No extra space other than stack of pair
+void inorderIterative1(TreeNode* root, std::vector<int>& ans)
+{
+	stack<pair<TreeNode*, int>> s;
+
+	s.push(make_pair(root, 0));
+
+	while (!s.empty())
 	{
-		vector<int> ans;
-		inorder(root, ans);
-		return ans;
+		pair<TreeNode*, int> temp = s.top();
+		TreeNode* cur = temp.first;
+		int state = temp.second;
+
+		s.pop();
+
+		if (cur == NULL || state == 3) continue;
+
+		s.push({cur, state + 1});
+
+		if (state == 0)s.push({cur->left, 0});
+		else if (state == 1)ans.push_back(cur->val);
+		else if (state == 2)s.push({cur->right, 0});
 	}
+}
+//This can be applied to pre and post order too.
+//Uses map + stack as extra space
+void inorderIterative(TreeNode* root, std::vector<int>& ans)
+{
+	stack<TreeNode*> s;
 	unordered_map<TreeNode*, int> cnt;
-	void inorder(TreeNode* root, vector<int>& ans)
+
+	s.push(root);
+
+	while (!s.empty())
 	{
-		stack <TreeNode*> s;
-		s.push(root);
+		TreeNode* cur = s.top();
 
-		while (!s.empty())
+		if (cur == NULL)
 		{
-			TreeNode* cur = s.top();
-			if (cur == NULL)
-			{
-				s.pop();
-				continue;
-			}
-
-			if (cnt[cur] == 0)s.push(cur->left);
-			else if (cnt[cur] == 1)ans.push_back(cur->val);
-			else if (cnt[cur] == 2)s.push(cur->right);
-			else
-				s.pop();
-
-			cnt[cur]++;
+			s.pop();
+			continue;
 		}
+
+		if (cnt[cur] == 0)s.push(cur->left);
+		else if (cnt[cur] == 1)ans.push_back(cur->val);
+		else if (cnt[cur] == 2)s.push(cur->right);
+		else
+			s.pop();
+
+		cnt[cur]++;
 	}
-};
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -54,3 +74,28 @@ else if (cnt[cur] == 1)s.push(cur->left);
 else if (cnt[cur] == 2)s.push(cur->right);
 else
 	s.pop();
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Only PRE + INORDER but NOT Post order - simple stack
+void inorderIterativeButNotPostOrder(TreeNode* root, vector<int>& ans)
+{
+	if (root == NULL)
+		return;
+
+	stack<TreeNode*> s;
+
+	while (root != NULL || !s.empty())
+	{
+		while (root != NULL)
+		{
+			s.push(root);
+			root = root->left;
+		}
+		root = s.top();
+		s.pop();
+		ans.push_back(root->val);
+		root = root->right;
+	}
+}
