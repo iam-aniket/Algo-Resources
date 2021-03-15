@@ -26,7 +26,6 @@ public:
 
 		root->right = temp;
 	}
-
 	/*
 	The idea is very simple(3 steps) :
 
