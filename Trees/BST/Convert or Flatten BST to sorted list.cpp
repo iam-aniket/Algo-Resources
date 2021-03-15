@@ -1,18 +1,6 @@
-<img width="777" alt="BST1" src="https://user-images.githubusercontent.com/63105008/111207153-44a0d100-85ef-11eb-859d-8c6cffe07fff.png">
+//https://github.com/iam-aniket/Algo-Resources/blob/main/Trees/BST/BST1.png
+//https://github.com/iam-aniket/Algo-Resources/blob/main/Trees/BST/BST2.png
 
-<img width="773" alt="BST2" src="https://user-images.githubusercontent.com/63105008/111207171-49fe1b80-85ef-11eb-9ab4-1b71467f0fac.png">
-
-/**
- * Definition for a binary tree node->
- * struct TreeNode* {
- *     int val;
- *     TreeNode* *left;
- *     TreeNode* *right;
- *     TreeNode*() : val(0), left(NULLptr), right(NULLptr) {}
- *     TreeNode*(int x) : val(x), left(NULLptr), right(NULLptr) {}
- *     TreeNode*(int x, TreeNode* *left, TreeNode* *right) : val(x), left(left), right(right) {}
- * };
- */
 class Solution {
 public:
 	void flatten(TreeNode* root)
@@ -85,6 +73,10 @@ public:
 	//---------->   Refer BST1,BST2.png image for intution behind this   <-------------//
 
 	//Best O(n)TC O(1)SC
+
+	//https://github.com/iam-aniket/Algo-Resources/blob/main/Trees/BST/BST1.png
+	//https://github.com/iam-aniket/Algo-Resources/blob/main/Trees/BST/BST2.png
+
 	void flatten3(TreeNode *root)
 	{
 		TreeNode*now = root;
