@@ -16,7 +16,7 @@ int knapsackSubsetSum(vector<int> arr, int sum, int n)
 	//Convert Recursive code to loops
 	for (int i = 1; i < n + 1; i++) //Note : i Started from 1
 	{
-		for (int j = 1; j < n + 1; j++)
+		for (int j = 1; j < sum + 1; j++)
 		{
 			if (arr[i - 1] <= j)
 				dp[i][j] = dp[i - 1][j - arr[i - 1]] || dp[i - 1][j];
