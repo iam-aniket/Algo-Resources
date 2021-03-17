@@ -1,5 +1,5 @@
 //bool dp[n+1][sum+1];
-int knapsackSubsetSum(vector<int> arr, int sum, int n)
+bool knapsackSubsetSum(vector<int> arr, int sum, int n)
 {
 	//Base Condition changed to initialization
 
