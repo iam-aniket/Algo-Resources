@@ -67,20 +67,21 @@ int knapsackMemoized(vector<int> weight, vector<int> val, int w, int n)
 
 //* Base condition - Is initialization in DP Table
 //* Recursive transformed to Table values
-
-//int dp[100][1000]; as global
 int knapsackTopDown(vector<int> weight, vector<int> val, int w, int n)
 {
+	int dp[n + 1][w + 1];
+	memset(dp, 0, sizeof(dp));
+
 	//Base Condition changed to initialization
 	for (int i = 0; i < n + 1; i++)
-		for (int j = 0; j < n + 1; j++)
+		for (int j = 0; j < w + 1; j++)
 			if (i == 0 || j == 0)
 				dp[i][j] = 0;
 
 	//Convert Recursive code to loops
 	for (int i = 1; i < n + 1; i++) //Note : i Started from 1
 	{
-		for (int j = 1; j < n + 1; j++)
+		for (int j = 1; j < w + 1; j++)
 		{
 			if (wt[i - 1] <= j)
 				dp[i][j] = max(val[i - 1] + dp[i - 1][j - weight[i - 1]], dp[i - 1][j]);
