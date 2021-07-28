@@ -27,5 +27,5 @@ int knapsackCountSubsetSumDifference(vector<int> arr, int diff)
 				dp[i][j] = dp[i - 1][j];
 		}
 	}
-	return dp[n][sum];
+	return dp[n][sum];//sum is already (diff + total) / 2;
 }
