@@ -45,7 +45,7 @@ public:
 				}
 			}
 
-			return dp[n][sum];
+			return dp[n][sum];//Since sum is already changed as sum/2
 		}
 	}
 };
