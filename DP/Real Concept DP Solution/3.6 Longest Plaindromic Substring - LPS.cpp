@@ -23,6 +23,7 @@ public:
             for (int j = 0; j < n + 1; j++)
                 if (i == 0 || j == 0)
                     dp[i][j] = 0;
+
         for (int i = 1; i < m + 1; i++)
         {
             for (int j = 1; j < n + 1; j++)
@@ -67,19 +68,17 @@ public:
     int ArrayTopDown(string s)
     {
         int n = s.length();
-        int a[n];
+        int dp[n] = {0};
 
         // Pick starting point
         for (int i = n - 1; i >= 0; i--)
         {
+            dp[i] = 1;//Initialization
             int prev = 0;
 
             for (int j = i; j < n; j++)
             {
-                if (j == i)
-                    a[j] = 1;
-
-                else if (s[i] == s[j])
+                if (s[i] == s[j])
                 {
                     // value a[j] is depend upon previous unupdated value of a[j-1]
                     // but in previous loop value of a[j-1] is changed.
