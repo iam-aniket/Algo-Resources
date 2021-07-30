@@ -73,7 +73,7 @@ public:
         // Pick starting point
         for (int i = n - 1; i >= 0; i--)
         {
-            dp[i] = 1;//Initialization
+            dp[i] = 1;// Initialization
             int prev = 0;
 
             for (int j = i; j < n; j++)
