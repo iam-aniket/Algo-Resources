@@ -76,7 +76,7 @@ public:
             dp[i] = 1;// Initialization
             int prev = 0;
 
-            for (int j = i; j < n; j++)
+            for (int j = i + 1; j < n; j++)
             {
                 if (s[i] == s[j])
                 {
